@@ -1,0 +1,13 @@
+# Joint PTP (rad). Set arm flags to select sides.
+bool move_left
+bool move_right
+float64[7] left_q
+float64[7] right_q
+---
+bool success
+string message
+---
+uint8 left_op_state
+uint8 right_op_state
+bool left_done
+bool right_done

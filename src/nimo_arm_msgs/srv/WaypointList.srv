@@ -1,0 +1,4 @@
+---
+bool success
+string message
+nimo_arm_msgs/Waypoint[] waypoints

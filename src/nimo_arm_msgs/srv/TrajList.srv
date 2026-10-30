@@ -1,0 +1,5 @@
+# List .traj files under the backend trajectories directory.
+---
+bool success
+string message
+string[] paths

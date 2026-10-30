@@ -1,0 +1,13 @@
+# Replay a .traj via ServoJ. Mutually exclusive with teleop motion form.
+string path
+# Playback rate scale (>0); default 1.0
+float64 rate_scale
+# If true, MovJ to first sample before streaming ServoJ
+bool approach_first
+# If true, auto-start status Record CSV for the replay duration
+bool auto_record
+---
+bool success
+string message
+# If auto_record: path of the status CSV (empty if not recording)
+string record_path

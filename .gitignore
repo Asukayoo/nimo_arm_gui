@@ -1,0 +1,23 @@
+build/
+install/
+log/
+__pycache__/
+*.pyc
+.vscode/
+.idea/
+*.user
+.env
+
+# Large STL meshes: local symlink (see README); do not commit absolute path
+src/nimo_arm_description/meshes
+src/nimo_arm_description/meshes/
+
+# Offline analysis / experiment artifacts (not part of the HMI repo)
+scripts/
+data/
+analysis_plots/
+traj_raw_vs_smooth.*
+Untitled
+*.db3
+*.bag
+*.csv

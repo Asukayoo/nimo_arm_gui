@@ -1,0 +1,13 @@
+# Offline smooth + uniform resample. Input/output are .traj files (not Record CSV).
+string input_path
+# Empty → <input_stem>_smooth.traj
+string output_path
+# Savitzky–Golay window (odd); <=0 → 9
+int32 sg_window
+# Resample period [s]; <=0 → 0.02
+float64 resample_dt
+---
+bool success
+string message
+string output_path
+uint64 rows

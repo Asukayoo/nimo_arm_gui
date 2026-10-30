@@ -1,0 +1,10 @@
+# Motion-form gate (orthogonal to ControlMode). Pico and ServoJ are mutually exclusive.
+# mode: 0=Pico (ServoPByPico / target_pose), 1=ServoJ (joint topics / ServoJ).
+# enable=true selects that mode (other off); enable=false clears that mode.
+uint8 MODE_PICO=0
+uint8 MODE_SERVOJ=1
+bool enable
+uint8 mode
+---
+bool success
+string message

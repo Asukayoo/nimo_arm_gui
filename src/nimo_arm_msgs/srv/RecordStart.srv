@@ -1,0 +1,8 @@
+# Empty path → auto path under ~/.nimo_robot/records/
+string path
+# Sample period [s]; <=0 uses default (0.02)
+float64 sample_period
+---
+bool success
+string message
+string path

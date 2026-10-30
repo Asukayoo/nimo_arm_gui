@@ -1,0 +1,12 @@
+bool move_left
+bool move_right
+geometry_msgs/Pose left_pose
+geometry_msgs/Pose right_pose
+---
+bool success
+string message
+---
+uint8 left_op_state
+uint8 right_op_state
+bool left_done
+bool right_done

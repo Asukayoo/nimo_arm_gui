@@ -1,0 +1,9 @@
+# ControlMode: 0 Position 1 JointImp 2 CartImp 3 Drag
+uint8 MODE_POSITION=0
+uint8 MODE_JOINT_IMP=1
+uint8 MODE_CART_IMP=2
+uint8 MODE_DRAG=3
+uint8 mode
+---
+bool success
+string message

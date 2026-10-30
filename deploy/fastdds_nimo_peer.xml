@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Jetson (nimo-012): bind DDS to wlan0 and peer the GUI PC. Copy into container or set FASTRTPS_DEFAULT_PROFILES_FILE. -->
+<dds xmlns="http://www.eprosima.com/XMLSchemas/fastRTPS_Profiles">
+  <profiles>
+    <transport_descriptors>
+      <transport_descriptor>
+        <transport_id>udp_wlan</transport_id>
+        <type>UDPv4</type>
+        <interfaceWhiteList>
+          <address>192.168.0.12</address>
+        </interfaceWhiteList>
+      </transport_descriptor>
+    </transport_descriptors>
+    <participant profile_name="nimo_robot_peer" is_default_profile="true">
+      <rtps>
+        <userTransports>
+          <transport_id>udp_wlan</transport_id>
+        </userTransports>
+        <useBuiltinTransports>false</useBuiltinTransports>
+        <builtin>
+          <initialPeersList>
+            <locator>
+              <udpv4>
+                <address>192.168.0.92</address>
+              </udpv4>
+            </locator>
+          </initialPeersList>
+        </builtin>
+      </rtps>
+    </participant>
+  </profiles>
+</dds>

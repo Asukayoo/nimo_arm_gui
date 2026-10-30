@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!--
+  Dual-arm kinematic skeleton for HMI/RViz.
+  Joint names frozen: Joint1_L..Joint7_L / Joint1_R..Joint7_R.
+  Geometry approximate; no meshes (Occam).
+-->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="nimo_arms">
+
+  <xacro:macro name="inertial_box" params="mass:=1">
+    <inertial>
+      <mass value="${mass}"/>
+      <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01"/>
+    </inertial>
+  </xacro:macro>
+
+  <xacro:macro name="revolute_seg" params="joint_name parent child">
+    <link name="${child}"><xacro:inertial_box mass="0.5"/></link>
+    <joint name="${joint_name}" type="revolute">
+      <parent link="${parent}"/>
+      <child link="${child}"/>
+      <origin xyz="0 0 0.1" rpy="0 0 0"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="-3.14" upper="3.14" effort="50" velocity="2.0"/>
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="arm7" params="side y">
+    <link name="Base_${side}"><xacro:inertial_box/></link>
+    <joint name="mount_${side}" type="fixed">
+      <parent link="torso_link"/>
+      <child link="Base_${side}"/>
+      <origin xyz="0 ${y} 0.3" rpy="0 0 0"/>
+    </joint>
+    <xacro:revolute_seg joint_name="Joint1_${side}" parent="Base_${side}" child="Link1_${side}"/>
+    <xacro:revolute_seg joint_name="Joint2_${side}" parent="Link1_${side}" child="Link2_${side}"/>
+    <xacro:revolute_seg joint_name="Joint3_${side}" parent="Link2_${side}" child="Link3_${side}"/>
+    <xacro:revolute_seg joint_name="Joint4_${side}" parent="Link3_${side}" child="Link4_${side}"/>
+    <xacro:revolute_seg joint_name="Joint5_${side}" parent="Link4_${side}" child="Link5_${side}"/>
+    <xacro:revolute_seg joint_name="Joint6_${side}" parent="Link5_${side}" child="Link6_${side}"/>
+    <xacro:revolute_seg joint_name="Joint7_${side}" parent="Link6_${side}" child="Link7_${side}"/>
+    <link name="tcp_${side}"/>
+    <joint name="tcp_fixed_${side}" type="fixed">
+      <parent link="Link7_${side}"/>
+      <child link="tcp_${side}"/>
+      <origin xyz="0 0 0.05" rpy="0 0 0"/>
+    </joint>
+  </xacro:macro>
+
+  <link name="base_footprint"/>
+  <joint name="base_footprint_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+  </joint>
+
+  <link name="base_link">
+    <inertial><mass value="40"/><inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/></inertial>
+  </link>
+
+  <link name="torso_link">
+    <inertial><mass value="15"/><inertia ixx="0.5" ixy="0" ixz="0" iyy="0.5" iyz="0" izz="0.5"/></inertial>
+  </link>
+  <joint name="torso_fixed" type="fixed">
+    <parent link="base_link"/>
+    <child link="torso_link"/>
+    <origin xyz="0 0 0.65" rpy="0 0 0"/>
+  </joint>
+
+  <xacro:arm7 side="L" y="0.2"/>
+  <xacro:arm7 side="R" y="-0.2"/>
+</robot>

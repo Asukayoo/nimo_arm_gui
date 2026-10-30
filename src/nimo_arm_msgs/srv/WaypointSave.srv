@@ -1,0 +1,7 @@
+string name
+bool capture_left
+bool capture_right
+string note
+---
+bool success
+string message

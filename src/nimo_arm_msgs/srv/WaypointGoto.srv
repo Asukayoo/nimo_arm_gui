@@ -1,0 +1,6 @@
+string name
+bool move_left
+bool move_right
+---
+bool success
+string message

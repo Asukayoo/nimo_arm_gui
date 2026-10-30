@@ -1,0 +1,5 @@
+/**:
+  ros__parameters:
+    use_sim: true
+    auto_init: true
+    publish_rate_hz: 50.0

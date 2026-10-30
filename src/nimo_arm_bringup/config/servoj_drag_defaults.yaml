@@ -1,0 +1,9 @@
+/**:
+  ros__parameters:
+    # ServoJ teleop fed by rokea_drag_bridge @ 50 Hz (Marvin-mapped joints).
+    servoj_interp_time_s: 0.02
+    servoj_align_tol_rad: 0.25
+    servoj_joint_timeout_s: 0.25
+    subscribe_teleop_joints: true
+    teleop_left_joint_topic: arm/left/target_joints
+    teleop_right_joint_topic: arm/right/target_joints
