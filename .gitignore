@@ -8,10 +8,6 @@ __pycache__/
 *.user
 .env
 
-# Large STL meshes: local symlink (see README); do not commit absolute path
-src/nimo_arm_description/meshes
-src/nimo_arm_description/meshes/
-
 # Offline analysis / experiment artifacts (not part of the HMI repo)
 scripts/
 data/

@@ -3,14 +3,9 @@ project(nimo_arm_description)
 
 find_package(ament_cmake REQUIRED)
 
-# Meshes: symlink or copy under meshes/ (from tj_control Marvin M6 URDF).
-install(DIRECTORY urdf launch rviz
+# Meshes: Marvin M3-S-CCS-615 dual-arm STLs under meshes/ (vendored from tj_control).
+install(DIRECTORY urdf launch rviz meshes
   DESTINATION share/${PROJECT_NAME}
 )
-if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/meshes")
-  install(DIRECTORY meshes
-    DESTINATION share/${PROJECT_NAME}
-  )
-endif()
 
 ament_package()

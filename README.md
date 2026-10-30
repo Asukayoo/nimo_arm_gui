@@ -33,8 +33,7 @@
 
 ```bash
 cd /home/yxc/nimo_arm_gui
-ln -sfn "$HOME/tj_control/urdf/Marvin_M6S_CCS_696_ urdf/meshes" \
-  src/nimo_arm_description/meshes
+# meshes already vendored: Marvin M3-S-CCS-615 dual-arm under src/nimo_arm_description/meshes
 bash deploy/sync.sh      # → 远程 nimo_robot
 bash deploy/build.sh     # 容器内编 nimo_robot
 bash deploy/build_local.sh
